@@ -1,10 +1,12 @@
 //Find the shortest path from Kostanay to Shymkent also find the distance
 
+import java.util.List;
+
 // Find the sum of the square of weights of all the edges.
 public class Main {
 
     public static void main(String[] args) {
-        WeightedGraph<Object> graph = new WeightedGraph<Object>();  //new WeightedGraph<>(true);
+        WeightedGraphPlus<Object> graph = new WeightedGraphPlus<Object>();  //new WeightedGraph<>(true);
 
         graph.addEdge("Almaty", "Astana", 2.1);
         graph.addEdge("Almaty", "Shymkent", 7.2);
@@ -12,12 +14,13 @@ public class Main {
         graph.addEdge("Astana", "Kostanay", 3.5);
         graph.addEdge("Shymkent", "Kyzylorda", 5.4);
 
-        //System.out.println("sum of the square of weights of all the edges: "+ graph.weightStorage);
+        System.out.println("sum of the square of weights of all the edges: "+ graph.weightStorage);
 
         System.out.println("Dijkstra:");
         DijkstraSearch<Object> djk = new DijkstraSearch<Object>(graph, "Kostanay");
         outputPath(djk, "Shymkent");
         System.out.println("The distance is: "+djk.getShortestDistance("Shymkent"));
+
 
 //        System.out.println("DFS:");
 //        Search<Object> dfs = new DepthFirstSearch<Object>(graph, "Almaty");
